@@ -1,0 +1,15 @@
+services:
+  gnn-training:
+    build: .
+    container_name: gnn_comparison
+    volumes:
+      - ./GNN_Plots:/app/GNN_Plots
+      - ./Trained_Models:/app/Trained_Models
+      - ./results:/app/results
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TORCH_USE_MKLDNN=0
+      - MKLDNN_DISABLE=1
+      - PYTORCH_DISABLE_MKLDNN=1
+      - OMP_NUM_THREADS=1
+    command: python GNN.py --num_graphs 50 --num_nodes_min 50 --num_nodes_max 100 --graph_type erdos_renyi --feature_type structural_role --edge_prob 0.1
