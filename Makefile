@@ -24,6 +24,7 @@ stop:
 clean-outputs:
 	rm -rf GNN_Plots/*.png
 	rm -rf Trained_Models/*.pth
+	rm -rf Trained_Models/*.pt
 	rm -rf results/*.json
 
 # Install local dependencies (non-Docker)

@@ -113,7 +113,7 @@ class GNNExperiment:
         # Train
         save_dir = "Trained_Models"
         os.makedirs(save_dir, exist_ok=True)  # Creates in current directory
-        save_path = f"{save_dir}/{model_name}_{self.dataset_config['graph_type']}.pt"   
+        save_path = f"{save_dir}/{model_name}_{self.dataset_config['graph_type']}_{self.dataset_config['feature_type']}.pt" 
         history = trainer.train(
             train_loader=train_loader,
             val_loader=val_loader,
@@ -195,7 +195,7 @@ class GNNExperiment:
         os.makedirs(save_dir, exist_ok=True) 
 
         for model_name, model in self.models.items():
-          new_save_path = f"{save_dir}/{model_name}_{self.dataset_config['graph_type']}.png"
+          new_save_path = f"{save_dir}/{model_name}_{self.dataset_config['graph_type']}_{self.dataset_config['feature_type']}.png"
           Visualiser.plot_regression_scatter(
             model=model,
             test_loader=test_loader,
