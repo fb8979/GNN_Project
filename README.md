@@ -61,7 +61,3 @@ docker compose up gnn-training    # Train all models
 
 - Docker Desktop (recommended) or Python 3.10+
 - PyTorch, PyTorch Geometric, NetworkX, scikit-learn
-
-## License
-
-MIT
