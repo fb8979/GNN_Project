@@ -60,7 +60,7 @@ class GINModel(nn.Module):
         """
         for i, conv in enumerate(self.convs[:-1]):
             x = conv(x, edge_index)
-            x = F.relu(x)
+            #x = F.relu(x)
             x = F.dropout(x, p=self.dropout, training=self.training)
         
         x = self.convs[-1](x, edge_index)

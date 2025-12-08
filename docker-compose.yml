@@ -1,7 +1,22 @@
 services:
   gnn-training:
     build: .
-    container_name: gnn_comparison
+    container_name: gnn_comparison_default
+    volumes:
+      - ./GNN_Plots:/app/GNN_Plots
+      - ./Trained_Models:/app/Trained_Models
+      - ./results:/app/results
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TORCH_USE_MKLDNN=0
+      - MKLDNN_DISABLE=1
+      - PYTORCH_DISABLE_MKLDNN=1
+      - OMP_NUM_THREADS=1
+    command: python GNN.py
+
+  gnn-training-custom:
+    build: .
+    container_name: gnn_comparison_custom
     volumes:
       - ./GNN_Plots:/app/GNN_Plots
       - ./Trained_Models:/app/Trained_Models

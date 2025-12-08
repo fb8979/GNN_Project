@@ -188,7 +188,8 @@ class GNNExperiment:
             self.histories[model_name] = history
             self.models[model_name] = trained_model
         
-        Visualiser.plot_training_history(self.histories)
+        training_plot_save_path = f"Training_plot_{self.dataset_config['feature_type']}"
+        Visualiser.plot_training_history(self.histories, training_plot_save_path)
         Visualiser.create_comparison_table(self.results)
 
         save_dir = "GNN_Plots"

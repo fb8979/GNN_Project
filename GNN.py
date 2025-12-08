@@ -5,12 +5,12 @@ import GNNExperiment
 
 parser = argparse.ArgumentParser(description="Run GNN Experiment")
 
-parser.add_argument('--num_graphs', type=int, default=100, help="Number of graphs to generate")
-parser.add_argument('--num_nodes_min', type=int, default=30, help="Minimum number of nodes per graph")
-parser.add_argument('--num_nodes_max', type=int, default=50, help="Maximum number of nodes per graph")
-parser.add_argument('--graph_type', type=str, default='watts_strogatz',
+parser.add_argument('--num_graphs', type=int, default=250, help="Number of graphs to generate")
+parser.add_argument('--num_nodes_min', type=int, default=50, help="Minimum number of nodes per graph")
+parser.add_argument('--num_nodes_max', type=int, default=100, help="Maximum number of nodes per graph")
+parser.add_argument('--graph_type', type=str, default='barabasi_albert',
                     choices=['erdos_renyi', 'barabasi_albert', 'watts_strogatz'], help="Type of graph")
-parser.add_argument('--feature_type', type=str, default='structural_role',
+parser.add_argument('--feature_type', type=str, default='pagerank',
                     choices=['structural_role', 'homophily', 'pagerank'], help="Node feature type")
 parser.add_argument('--edge_prob', type=float, default=0.1, help="Edge probability (only for some graph types)")
 
